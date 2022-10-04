@@ -3,3 +3,10 @@
 <button (click)="decrementaContador()">Decrementar</button>
 
 <app-display-contador></app-display-contador>
+
+<br />
+
+<input #inputContador style="margin-top: 6rem;" type="number" />
+<button (click)="definirContador(inputContador.value)">Definir</button>
+
+<router-outlet></router-outlet>

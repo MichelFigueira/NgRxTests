@@ -1,0 +1,7 @@
+<br /><br />
+<button [routerLink]="['/detalhes-usuario']" routerLinkActive="router-link-active" >Detalhes Usuario</button>
+<ul>
+  <li *ngFor="let item of todos$ | async">
+    {{item.title}}
+  </li>
+</ul>

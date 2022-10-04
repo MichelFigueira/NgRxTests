@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
 
-import { decrementaContador, IAppState, incrementaContador } from './store/app.state';
+import { decrementaContador, defineContador, IAppState, incrementaContador } from './store/app.state';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'NgRxTests';
 
-  constructor(private store: Store<{app: IAppState}>) {
+  constructor(
+    private store: Store<{app: IAppState}>
+  ) { }
+
+  ngOnInit(): void {
   }
 
   counter$ = this.store
@@ -28,4 +32,9 @@ export class AppComponent {
   decrementaContador() {
     this.store.dispatch(decrementaContador())
   }
+
+  definirContador(valor: string) {
+    this.store.dispatch(defineContador({payload: +valor}));
+  }
+
 }
